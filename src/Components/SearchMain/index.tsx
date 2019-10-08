@@ -2,19 +2,19 @@ import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { QueryState } from '../../Store/Query/types';
 import { AppState } from '../../Store';
-import ResultItem from './ResultItem';
 import { queryApi } from '../../Helpers/coveo.api';
+import SearchResults from './SearchResults';
 
-interface SearchResultsProps {
+interface SearchMainProps {
   normalQuery: QueryState;
 }
 
 interface ApiResult {
-    error?: boolean;
-    results: any[];
+  error?: boolean;
+  results: any[];
 }
 
-const SearchResults: React.FC<SearchResultsProps> = ({ normalQuery }) => {
+const SearchMain: React.FC<SearchMainProps> = ({ normalQuery }) => {
   const [data, setData] = useState<ApiResult>({ results: [] });
 
   useEffect(() => {
@@ -30,23 +30,15 @@ const SearchResults: React.FC<SearchResultsProps> = ({ normalQuery }) => {
     fetchData();
   }, [normalQuery.query]);
 
-  return <div className="results-container">
-      {data.results.map((item, key) => {
-          return <ResultItem
-          key={key}
-          title={item.title}
-          uri={item.uri}
-          prixnum={item.raw.tpprixnum}
-          pays={item.raw.tppays}
-          millesime={item.raw.tpmillesime}
-          thumbnailuri={item.raw.tpthumbnailuri}
-          />
-      })}
-  </div>;
+  return (
+    <div className="search-main">
+      <SearchResults results={data.results} />
+    </div>
+  );
 };
 
 const mapStateToProps = (state: AppState) => ({
   normalQuery: state.normalQuery
 });
 
-export default connect(mapStateToProps)(SearchResults);
+export default connect(mapStateToProps)(SearchMain);

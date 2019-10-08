@@ -1,13 +1,13 @@
 import React from 'react';
 import Header from './Components/Header';
-import SearchResults from './Components/SearchResults';
+import SearchMain from './Components/SearchMain';
 import './App.css';
 
 const App: React.FC = () => {
   return (
     <div className="App">
       <Header />
-      <SearchResults />
+      <SearchMain />
     </div>
   );
 };
