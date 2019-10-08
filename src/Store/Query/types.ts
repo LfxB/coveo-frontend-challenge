@@ -1,9 +1,10 @@
-// Describing the shape of the chat's slice of state
+// Describing the shape of the query's slice of state.
 export interface QueryState {
   query: string;
 }
 
-// Describing the different ACTION NAMES available
+// Describing the different ACTION NAMES available.
+// Right now there is just one.
 export const UPDATE_QUERY = 'UPDATE_QUERY';
 
 interface UpdateQueryAction {

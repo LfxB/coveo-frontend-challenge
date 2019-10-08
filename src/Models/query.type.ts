@@ -26,15 +26,3 @@ export interface Group {
   generateAutomaticRanges?: boolean;
   queryOverride?: string;
 }
-
-let obj: Query = {
-  groupBy: [
-    {
-      field: 'string',
-      maximumNumberOfValues: 5,
-      sortCriteria: 'string',
-      injectionDepth: 5,
-      completeFacetWithStandardValues: true
-    }
-  ]
-};
