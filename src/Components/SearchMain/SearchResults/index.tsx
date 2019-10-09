@@ -1,11 +1,16 @@
 import React from 'react';
 import ResultItem from './ResultItem';
+import Pagination from './Pagination';
 
 interface SearchResultsProps {
   results: any[];
+  totalCount: number;
 }
 
-const SearchResults: React.FC<SearchResultsProps> = ({ results }) => {
+const SearchResults: React.FC<SearchResultsProps> = ({
+  results,
+  totalCount
+}) => {
   return (
     <div className="results-container">
       {results.map((item, key) => {
@@ -21,6 +26,7 @@ const SearchResults: React.FC<SearchResultsProps> = ({ results }) => {
           />
         );
       })}
+      <Pagination totalCount={totalCount} />
     </div>
   );
 };

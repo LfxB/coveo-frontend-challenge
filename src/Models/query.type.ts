@@ -2,6 +2,10 @@ export interface Query {
   q?: string;
   aq?: AdvancedQuery;
   groupBy?: Group[];
+  firstResult?: number;
+  numberOfResults?: number;
+  sortCriteria: string;
+  sortField: string;
 }
 
 export interface AdvancedQuery {

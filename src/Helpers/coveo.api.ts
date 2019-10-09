@@ -1,9 +1,11 @@
 import { Query, Group } from '../Models/query.type';
+import { PaginationState } from '../Store/Pagination/types';
 
-export const queryApi = async (query: Query) => {
-  let input = `https://cloudplatform.coveo.com/rest/search`;
-
-  // TODO aq params
+export const queryResults = async (
+  query: Query,
+  pagination: PaginationState
+) => {
+  const input = 'https://cloudplatform.coveo.com/rest/search';
 
   let response = await fetch(input, {
     method: 'POST',
@@ -12,7 +14,12 @@ export const queryApi = async (query: Query) => {
       Authorization: `Bearer ${process.env.REACT_APP_TOKEN}`,
       'Content-Type': 'application/json'
     }),
-    body: JSON.stringify({ ...query, groupBy: getGroupByParams() })
+    body: JSON.stringify({
+      ...query,
+      groupBy: getGroupByParams(),
+      firstResult: pagination.firstResult,
+      numberOfResults: pagination.numberOfResults
+    })
   });
 
   if (!response.ok) {

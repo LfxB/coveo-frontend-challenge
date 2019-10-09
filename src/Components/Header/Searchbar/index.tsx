@@ -2,20 +2,30 @@ import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { QueryState } from '../../../Store/Query/types';
 import { updateQuery } from '../../../Store/Query/actions';
+import { updateFirstResult } from '../../../Store/Pagination/actions';
 import { AppState } from '../../../Store';
 
 interface SearchbarProps {
   normalQuery: QueryState;
   updateQuery: typeof updateQuery;
+  updateFirstResult: typeof updateFirstResult;
 }
 
-const Searchbar: React.FC<SearchbarProps> = ({ normalQuery, updateQuery }) => {
+const Searchbar: React.FC<SearchbarProps> = ({
+  normalQuery,
+  updateQuery,
+  updateFirstResult
+}) => {
   const [query, setQuery] = useState(normalQuery.query);
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
+    // Update normal query (q) in state
     updateQuery(query);
+
+    // Update firstResult to 0 (1st page) in state
+    updateFirstResult(0);
   };
 
   return (
@@ -38,5 +48,5 @@ const mapStateToProps = (state: AppState) => ({
 
 export default connect(
   mapStateToProps,
-  { updateQuery }
+  { updateQuery, updateFirstResult }
 )(Searchbar);

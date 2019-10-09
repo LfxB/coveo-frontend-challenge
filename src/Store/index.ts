@@ -2,9 +2,11 @@ import { createStore, combineReducers } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 
 import { normalQueryReducer } from './Query/reducers';
+import { paginationReducer } from './Pagination/reducers';
 
 const rootReducer = combineReducers({
-  normalQuery: normalQueryReducer
+  normalQuery: normalQueryReducer,
+  pagination: paginationReducer
 });
 
 export type AppState = ReturnType<typeof rootReducer>;
