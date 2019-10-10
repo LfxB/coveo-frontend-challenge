@@ -16,6 +16,7 @@ export const queryResults = async (
     }),
     body: JSON.stringify({
       ...query,
+      aq: query.aq,
       groupBy: getGroupByParams(),
       firstResult: pagination.firstResult,
       numberOfResults: pagination.numberOfResults
@@ -178,4 +179,31 @@ export const getGroupByParams = () => {
     }
   ];
   return groupBy;
+};
+
+export const getGroupPrettyTitle = (groupField: string) => {
+  const titles: { [key: string]: string } = {
+    tpprixnum: 'Prix',
+    tpenspecial: 'En spécial',
+    tpdisponibilite: 'Disponibilité',
+    tpcategorie: 'Catégorie',
+    tppays: 'Pays',
+    tpregion: 'Region',
+    tpmillesime: 'Millésime',
+    tpcoteexpertsplitgroup: "Cote d'expert",
+    tpcepagenomsplitgroup: 'Cépage',
+    tpinventairenomsuccursalesplitgroup: 'Succursale',
+    tpclassification: 'Classification',
+    tppastilledegout: 'Pastille de goût',
+    tpfamilledevinsplitgroup: 'Famille de vin',
+    tpaccordsnommenu: 'Accords suggérés',
+    tpparticularitesplitgroup: 'Particularité',
+    tpobservationsgustativesacidite: 'Acidité (Gustative)',
+    tpobservationsgustativescorps: 'Corps (Gustatif)',
+    tpobservationsgustativessucre: 'Sucre (Gustatif)',
+    tpobservationsgustativestannins: 'Tannins (Gustatif)',
+    tpobservationsgustativestexture: 'Texture (Gustative)'
+  };
+
+  return titles[groupField];
 };

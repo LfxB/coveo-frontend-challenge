@@ -3,9 +3,11 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 
 import { normalQueryReducer } from './Query/reducers';
 import { paginationReducer } from './Pagination/reducers';
+import { advancedQueriesReducer } from './AdvancedQuery/reducers';
 
 const rootReducer = combineReducers({
   normalQuery: normalQueryReducer,
+  advancedQueries: advancedQueriesReducer,
   pagination: paginationReducer
 });
 
