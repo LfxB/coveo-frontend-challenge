@@ -29,7 +29,12 @@ const ResultItem: React.FC<ResultItemProps> = ({
       >
         <img src={thumbnailuri} alt={'Image of ' + title}></img>
       </a>
-      <a href={uri} className="results-title">
+      <a
+        href={uri}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="results-title"
+      >
         {title}
       </a>
       <div className="results-pays-prix">
