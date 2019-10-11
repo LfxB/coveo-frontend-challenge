@@ -1,0 +1,14 @@
+.results-container {
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  /* grid-template-rows: repeat(2, 100px); */
+}
+
+@media only screen and (min-width: 768px) {
+  .results-container {
+    padding-left: 20px;
+    padding-right: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  }
+}

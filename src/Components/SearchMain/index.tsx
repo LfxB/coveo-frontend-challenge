@@ -5,6 +5,7 @@ import { AppState } from '../../Store';
 import { queryResults } from '../../Helpers/coveo.api';
 import { GroupByResult } from '../../Models/query.type';
 import SearchResults from './SearchResults';
+import Pagination from './Pagination';
 import Filterbar from './Filterbar';
 
 import './index.css';
@@ -60,7 +61,8 @@ const SearchMain: React.FC<SearchMainProps> = ({
 
   return (
     <div className="search-main">
-      <SearchResults results={data.results} totalCount={data.totalCount} />
+      <SearchResults results={data.results} />
+      <Pagination totalCount={data.totalCount} />
       <Filterbar groupByResults={data.groupByResults} />
     </div>
   );

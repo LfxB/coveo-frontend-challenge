@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import ReactPaginate from 'react-paginate';
-import { updateFirstResult } from '../../../../Store/Pagination/actions';
-import { AppState } from '../../../../Store';
+import { updateFirstResult } from '../../../Store/Pagination/actions';
+import { AppState } from '../../../Store';
 
 import './index.css';
 
