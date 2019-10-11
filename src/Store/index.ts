@@ -4,11 +4,13 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import { normalQueryReducer } from './Query/reducers';
 import { paginationReducer } from './Pagination/reducers';
 import { advancedQueriesReducer } from './AdvancedQuery/reducers';
+import { showFilterMenuReducer } from './ShowFilterMenu/reducers';
 
 const rootReducer = combineReducers({
   normalQuery: normalQueryReducer,
   advancedQueries: advancedQueriesReducer,
-  pagination: paginationReducer
+  pagination: paginationReducer,
+  showFilterMenu: showFilterMenuReducer
 });
 
 export type AppState = ReturnType<typeof rootReducer>;
