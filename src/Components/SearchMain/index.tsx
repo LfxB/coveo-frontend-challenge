@@ -7,6 +7,8 @@ import { GroupByResult } from '../../Models/query.type';
 import SearchResults from './SearchResults';
 import Filterbar from './Filterbar';
 
+import './index.css';
+
 interface SearchMainProps {
   normalQuery: QueryState;
   firstResult: number;

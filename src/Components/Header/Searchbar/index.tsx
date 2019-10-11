@@ -5,6 +5,8 @@ import { updateQuery } from '../../../Store/Query/actions';
 import { updateFirstResult } from '../../../Store/Pagination/actions';
 import { AppState } from '../../../Store';
 
+import './index.css';
+
 interface SearchbarProps {
   normalQuery: QueryState;
   updateQuery: typeof updateQuery;
@@ -18,9 +20,7 @@ const Searchbar: React.FC<SearchbarProps> = ({
 }) => {
   const [query, setQuery] = useState(normalQuery.query);
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-
+  const handleSubmit = () => {
     // Update normal query (q) in state
     updateQuery(query);
 
@@ -29,16 +29,23 @@ const Searchbar: React.FC<SearchbarProps> = ({
   };
 
   return (
-    <form className="search-form" onSubmit={handleSubmit}>
+    <div className="search-form">
       <input
         className="search-form-text"
         type="text"
         value={query}
         onChange={e => setQuery(e.target.value)}
-        placeholder="Search..."
+        onKeyUp={e => {
+          // keyCode 13 => ENTER key
+          if (e.keyCode === 13) {
+            handleSubmit();
+          }
+        }}
       />
-      <input className="search-form-button" type="submit" value="Search" />
-    </form>
+      <div className="search-form-button" onClick={handleSubmit}>
+        <div className="search-icon icon-background"></div>
+      </div>
+    </div>
   );
 };
 

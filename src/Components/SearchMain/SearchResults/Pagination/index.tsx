@@ -50,6 +50,7 @@ const Pagination: React.FC<PaginationProps> = ({
       activeClassName="pagination-active"
       previousClassName="pagination-prev"
       nextClassName="pagination-next"
+      disabledClassName="pagination-disabled"
     />
   );
 };

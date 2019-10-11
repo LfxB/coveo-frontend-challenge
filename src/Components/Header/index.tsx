@@ -7,8 +7,11 @@ import './index.css';
 const Header: React.FC = props => {
   return (
     <header className="header-container">
-      S.A.Q.
+      <div className="header-title">SAQ</div>
       <Searchbar />
+      <div className="header-filter-button">
+        <div className="filter-open"></div>
+      </div>
     </header>
   );
 };

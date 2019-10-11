@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Barlow:400i|Lato&display=swap');
+
 * {
   box-sizing: border-box;
 }
@@ -11,6 +13,13 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  --main-blue: #17223b;
+  --bright-orange: #ff6768;
+  --secondary-blue: #263859;
+  --gray: #6b778d;
 }
 
 @media screen and (min-width: 1600px) {

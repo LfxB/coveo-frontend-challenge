@@ -1,55 +1,114 @@
 .pagination {
-  --selected: #161b33;
-  --nonselected: #ebb3a9;
-  --text-color: #ffffff;
-  --outline: #ba5a31;
+  --selected: #2e2c2c;
+  --nonselected: #f7f7f7;
+  --selected-text-color: #ffffff;
+  --text-color: #777777;
+  --text-light: #aaaaaa;
   display: inline-block;
+  vertical-align: middle;
   padding: 0;
-  border-color: var(--outline);
-  border-style: solid;
-  border-width: 1px;
 }
 
 .pagination > li {
-  display: inline-block;
-  padding-left: 15px;
-  padding-right: 15px;
+  padding: 0px;
+  min-width: 32px;
 }
 
 .pagination-page {
+  display: inline-block;
   background-color: var(--nonselected);
+  border-color: var(--nonselected);
+  border-style: solid;
+  border-width: 1px;
+  cursor: pointer;
 }
 
 .pagination-page > a {
   color: var(--text-color);
   outline: none;
+  display: block;
+  width: 100%;
+  height: 100%;
 }
 
 .pagination-active {
   background-color: var(--selected);
+  border-color: var(--selected);
+  border-style: solid;
+  border-width: 1px;
 }
 
 .pagination-active > a {
-  color: var(--text-color);
+  color: var(--selected-text-color);
   outline: none;
+  display: block;
+  width: 100%;
+  height: 100%;
 }
 
 .pagination-prev,
 .pagination-next {
+  display: inline-block;
   background-color: var(--nonselected);
+  cursor: pointer;
+  border-color: var(--text-light);
+  border-style: solid;
+  border-width: 1px;
+}
+
+.pagination-prev {
+  /* border-right-width: 0px; */
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+
+.pagination-next {
+  /* border-left-width: 0px; */
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
 }
 
 .pagination-prev > a,
 .pagination-next > a {
   color: var(--text-color);
   outline: none;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.pagination-disabled {
+  display: none;
+}
+
+.pagination-disabled > a {
+  display: none;
 }
 
 .pagination-break {
+  display: inline-block;
   background-color: var(--nonselected);
+  border-color: var(--nonselected);
+  border-style: solid;
+  border-width: 1px;
+  cursor: pointer;
 }
 
 .pagination-break > a {
   color: var(--text-color);
   outline: none;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.pagination-page:hover,
+.pagination-prev:hover,
+.pagination-next:hover,
+.pagination-break:hover {
+  background-color: #ffffff;
+}
+
+.pagination-active:hover {
+  background-color: var(--selected);
 }
