@@ -2,3 +2,9 @@
   padding-top: 60px;
   background-color: rgb(223, 223, 223);
 }
+
+@media only screen and (min-width: 768px) {
+  .search-main {
+    padding-left: 280px;
+  }
+}

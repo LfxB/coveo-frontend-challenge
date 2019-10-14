@@ -1,0 +1,42 @@
+.filter-group {
+  text-align: left;
+  border-bottom: 1px solid #ff676877;
+  margin: 10px 0px 5px 0px;
+}
+
+.filter-group-header {
+  font-weight: 800;
+  color: var(--bright-orange);
+}
+
+.filter-group-options-list {
+  list-style: none;
+  padding: 0px;
+  margin: 5px 0px;
+}
+
+.filter-group-options-list > li:hover {
+  background-color: #ff676877;
+}
+
+.filter-group-label {
+  white-space: nowrap;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.filter-group-option-name {
+  max-width: 190px;
+  display: inline-block;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  vertical-align: middle;
+}
+
+.filter-group-option-count {
+  font-size: 12px;
+  margin: 0 5px;
+  color: #6b6b6b;
+  vertical-align: middle;
+}

@@ -1,0 +1,26 @@
+.filter-container {
+  display: block;
+  position: fixed;
+  left: -280px;
+  top: 60px;
+  height: calc(100% - 60px);
+  width: 280px;
+  padding: 10px 8px 2px 8px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  background-color: #fdfdfd;
+  transition: left 0.3s ease-in-out;
+  font-size: 15px;
+  font-family: 'Lato', sans-serif;
+  box-shadow: 2px 0px 10px #a0a0a0;
+}
+
+.filter-mobile {
+  left: 0;
+}
+
+@media only screen and (min-width: 768px) {
+  .filter-container {
+    left: 0;
+  }
+}

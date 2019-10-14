@@ -44,4 +44,8 @@
     background-clip: text;
     color: transparent;
   }
+
+  .header-filter-button {
+    display: none;
+  }
 }

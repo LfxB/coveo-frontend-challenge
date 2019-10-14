@@ -22,10 +22,10 @@ const Header: React.FC<HeaderProps> = ({
   return (
     <header className="header-container">
       <div className="header-title">SAQ</div>
-      <Searchbar />
       <div className="header-filter-button" onClick={onFilterClick}>
         <div className="filter-open"></div>
       </div>
+      <Searchbar />
     </header>
   );
 };

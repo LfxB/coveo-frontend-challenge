@@ -46,3 +46,35 @@ pre {
   border-radius: 1px;
   border-color: #6e78cf;
 }
+
+.checkbox {
+  display: inline-block;
+  cursor: pointer;
+  font-size: 13px;
+  line-height: 18px;
+  vertical-align: middle;
+}
+
+input[type='checkbox'] {
+  display: none;
+}
+
+.checkbox:before {
+  content: '';
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  vertical-align: middle;
+  background: url('./Assets/check_box_outline_blank-24px.svg') no-repeat center
+    center;
+  filter: opacity(0.7);
+  color: #f3f3f3;
+  text-align: center;
+}
+input[type='checkbox']:checked + .checkbox:before {
+  background: url('./Assets/check_box-24px.svg') no-repeat center center;
+  filter: opacity(0.9);
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+  font-size: 15px;
+  background-size: 25px 25px;
+}

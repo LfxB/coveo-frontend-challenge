@@ -7,6 +7,8 @@ import {
 import { updateFirstResult } from '../../../../Store/Pagination/actions';
 import { GroupByResultValue } from '../../../../Models/query.type';
 
+import './index.css';
+
 interface FilterGroupProps {
   title: string;
   field: string;
@@ -59,22 +61,29 @@ const FilterGroup: React.FC<FilterGroupProps> = ({
 
           return (
             <li key={key}>
-              <span>
-                <input
-                  type="checkbox"
-                  name={inputName}
-                  checked={checkboxes[inputName] || false}
-                  onChange={event =>
-                    onCheckboxClick(event, field, option.lookupValue)
-                  }
-                />
-              </span>
-              <span className="filter-group-option-name">
-                {option.lookupValue}
-              </span>
-              <span className="filter-group-option-count">
-                {option.numberOfResults}
-              </span>
+              <input
+                type="checkbox"
+                name={inputName}
+                id={inputName}
+                checked={checkboxes[inputName] || false}
+                onChange={event =>
+                  onCheckboxClick(event, field, option.lookupValue)
+                }
+              />
+              <label
+                className="filter-group-label checkbox"
+                htmlFor={inputName}
+              >
+                <span
+                  className="filter-group-option-name"
+                  title={option.lookupValue}
+                >
+                  {option.lookupValue}
+                </span>
+                <span className="filter-group-option-count">
+                  {option.numberOfResults}
+                </span>
+              </label>
             </li>
           );
         })}
