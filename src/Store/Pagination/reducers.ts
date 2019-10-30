@@ -4,10 +4,13 @@ import {
   UPDATE_NUMBER_OF_RESULTS,
   PaginationActionTypes
 } from './types';
+import { getParsedQuery } from '../../Helpers/query-string.helper';
+
+let parsed = getParsedQuery();
 
 const initialState: PaginationState = {
-  firstResult: 0,
-  numberOfResults: 12
+  firstResult: !parsed.first ? 0 : parseInt(parsed.first),
+  numberOfResults: !parsed.results ? 12 : parseInt(parsed.results)
 };
 
 export function paginationReducer(

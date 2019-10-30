@@ -9,6 +9,7 @@ import Pagination from './Pagination';
 import Filterbar from './Filterbar';
 
 import './index.css';
+import Loading from '../Loading';
 
 interface SearchMainProps {
   normalQuery: QueryState;
@@ -36,8 +37,11 @@ const SearchMain: React.FC<SearchMainProps> = ({
     groupByResults: undefined
   });
 
+  const [loading, setLoading] = useState<boolean>(false);
+
   useEffect(() => {
     const fetchData = async () => {
+      setLoading(true);
       const result = await queryResults(
         {
           q: normalQuery.query,
@@ -52,19 +56,23 @@ const SearchMain: React.FC<SearchMainProps> = ({
       );
 
       console.log(result);
-
+      setLoading(false);
       setData(result);
     };
 
     fetchData();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }, [normalQuery.query, firstResult, numberOfResults, advancedQueries]);
 
   return (
-    <div className="search-main">
-      <SearchResults results={data.results} />
-      <Pagination totalCount={data.totalCount} />
-      <Filterbar groupByResults={data.groupByResults} />
-    </div>
+    <React.Fragment>
+      {loading && <Loading fullScreen={true} />}
+      <div className="search-main">
+        <SearchResults results={data.results} />
+        <Pagination totalCount={data.totalCount} />
+        <Filterbar groupByResults={data.groupByResults} />
+      </div>
+    </React.Fragment>
   );
 };
 

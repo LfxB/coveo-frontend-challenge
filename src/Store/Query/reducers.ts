@@ -1,7 +1,10 @@
 import { QueryState, UPDATE_QUERY, QueryActionTypes } from './types';
+import { getParsedQuery } from '../../Helpers/query-string.helper';
+
+let parsed = getParsedQuery();
 
 const initialState: QueryState = {
-  query: ''
+  query: !parsed.q ? '' : parsed.q
 };
 
 export function normalQueryReducer(

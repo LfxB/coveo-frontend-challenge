@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import {
   updateAdvancedQuery,
@@ -8,6 +8,7 @@ import { updateFirstResult } from '../../../../Store/Pagination/actions';
 import { GroupByResultValue } from '../../../../Models/query.type';
 
 import './index.css';
+import { getAdvancedQueryStatus } from '../../../../Helpers/query-string.helper';
 
 interface FilterGroupProps {
   title: string;
@@ -26,8 +27,6 @@ const FilterGroup: React.FC<FilterGroupProps> = ({
   removeAdvancedQuery,
   updateFirstResult
 }) => {
-  const [checkboxes, setCheckbox] = useState<{ [key: string]: boolean }>({});
-
   if (options.length === 0) {
     return null;
   }
@@ -38,9 +37,6 @@ const FilterGroup: React.FC<FilterGroupProps> = ({
     optionName: string
   ) => {
     const target = event.target as HTMLInputElement;
-
-    // checkboxes[target.name] = target.checked;
-    setCheckbox({ ...checkboxes, [target.name]: target.checked });
 
     if (target.checked) {
       updateAdvancedQuery(field, optionName, false);
@@ -65,7 +61,9 @@ const FilterGroup: React.FC<FilterGroupProps> = ({
                 type="checkbox"
                 name={inputName}
                 id={inputName}
-                checked={checkboxes[inputName] || false}
+                checked={
+                  getAdvancedQueryStatus(field, option.lookupValue).isChecked
+                }
                 onChange={event =>
                   onCheckboxClick(event, field, option.lookupValue)
                 }

@@ -2,11 +2,15 @@ import {
   AdvancedQueryState,
   UPDATE_ADVANCED_QUERY,
   REMOVE_ADVANCED_QUERY,
+  SET_ALL_ADVANCED_QUERIES,
   AdvancedQueryActionTypes
 } from './types';
+import { getParsedQuery } from '../../Helpers/query-string.helper';
+
+let parsed = getParsedQuery();
 
 const initialState: AdvancedQueryState = {
-  queries: []
+  queries: !parsed.aq ? [] : parsed.aq.split('---')
 };
 
 export function advancedQueriesReducer(
@@ -33,6 +37,10 @@ export function advancedQueriesReducer(
         queries: state.queries.filter(
           q => !q.includes(`${action.field}=="${action.value}"`)
         )
+      };
+    case SET_ALL_ADVANCED_QUERIES:
+      return {
+        queries: [...action.payload]
       };
     default:
       return state;

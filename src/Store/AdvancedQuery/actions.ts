@@ -1,4 +1,8 @@
-import { UPDATE_ADVANCED_QUERY, REMOVE_ADVANCED_QUERY } from './types';
+import {
+  UPDATE_ADVANCED_QUERY,
+  REMOVE_ADVANCED_QUERY,
+  SET_ALL_ADVANCED_QUERIES
+} from './types';
 
 export function updateAdvancedQuery(
   field: string,
@@ -18,5 +22,12 @@ export function removeAdvancedQuery(field: string, value: string) {
     type: REMOVE_ADVANCED_QUERY,
     field,
     value
+  };
+}
+
+export function SetAllAdvancedQueries(payload: string[]) {
+  return {
+    type: SET_ALL_ADVANCED_QUERIES,
+    payload
   };
 }
