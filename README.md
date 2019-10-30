@@ -2,6 +2,70 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Mini Documentation
+
+This project is written in React (using Hooks), TypeScript, and Redux.
+To run this project, you will first need to create a .env file with the line
+`REACT_APP_TOKEN='YOUR COVEO API TOKEN HERE'`.
+
+The src code is organized as follows:
+
+| Folder/File | Purpose                                                                                                                                                                                                                               |
+| ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Assets      | Contains SVG assets.                                                                                                                                                                                                                  |
+| Components  | Contains all React function components. Typically I separate components between route and reusabe components, but since this app has only one route, I decided to place them all under here. See the Component tree below for layout. |
+| Helpers     | Contains helper files with functions such as API fetching or query helper functions.                                                                                                                                                  |
+| Models      | Defines certain interfaces used throughout the application.                                                                                                                                                                           |
+| Store       | Contains folders for reducers, actions, and types, along with an index.ts file to combine all reducers.                                                                                                                               |
+| tests       | Contains all tests. Decided to put them here for easy viewing, rather than alongside their functional counterparts.                                                                                                                   |
+| App.tsx     | Renders Header, SearchMain, and HistoryState components under a Router component.                                                                                                                                                     |
+| index.tsx   | Renders App under the Redux Provider component.                                                                                                                                                                                       |
+
+Component tree:
+
+<pre>
+Components
+|   
++---Header >> Contains SAQ title, Filterbar button, and Searchbar
+|   |   index.css
+|   |   index.tsx
+|   |   
+|   \---Searchbar >> Allows searching for a basic query. Updates 'query' and 'firstResult' (page) state on search
+|           index.css
+|           index.tsx
+|           
++---HistoryState >> Allows syncing of URL to Redux state and vice versa. Returns null.
+|       index.tsx
+|       
++---Loading >> A simple Loading circle component with a prop 'fullScreen' to display over all components or not.
+|       index.css
+|       index.tsx
+|       
+\---SearchMain >> The component that calls the API and populates Filterbar, Pagination, and SearchResults with data
+    |   index.css
+    |   index.tsx
+    |   
+    +---Filterbar >> Loops through all the filter facets and passes data to child 'FilterGroup' components
+    |   |   index.css
+    |   |   index.tsx
+    |   |   
+    |   \---FilterGroup >> Displays each filter facet with the lookup values and number of results, with checkboxes
+    |           index.css
+    |           index.tsx
+    |           
+    +---Pagination >> Uses data passed from SearchMain to determine how many pages to display.
+    |       index.css
+    |       index.tsx
+    |       
+    \---SearchResults >> Loops through all results and feeds the data to child ResultItem components
+        |   index.css
+        |   index.tsx
+        |   
+        \---ResultItem >> Displays a single result item with title, image, price, country, and category
+                index.css
+                index.tsx
+</pre>
+
 ## The challenge
 
 The SAQ is the government-run liquor store monopoly that we have in Quebec, we indexed the different wines and beers there and made it available through our REST Search API. Don’t be surprised if the prices are high!
