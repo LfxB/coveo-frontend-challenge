@@ -13,7 +13,7 @@ interface SearchbarProps {
   updateFirstResult: typeof updateFirstResult;
 }
 
-const Searchbar: React.FC<SearchbarProps> = ({
+export const Searchbar: React.FC<SearchbarProps> = ({
   normalQuery,
   updateQuery,
   updateFirstResult

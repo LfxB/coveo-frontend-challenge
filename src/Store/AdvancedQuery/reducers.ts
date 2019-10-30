@@ -23,6 +23,8 @@ export function advancedQueriesReducer(
       const base = `${action.field}=="${action.value}")`;
 
       // Compose full query string based on action.exclude
+      // ex: query exclusion (NOT @tpdisponibilite=="En Ligne"
+      // ex: query inclusion (@tpdisponibilite=="En Ligne"
       const query = (action.exclude ? '(NOT @' : '(@') + base;
 
       // Form a new list of queries which does not include the base as a substring

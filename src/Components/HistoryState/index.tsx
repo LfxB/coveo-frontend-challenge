@@ -64,7 +64,7 @@ const HistoryState: React.FC<HistoryStateProps> = ({
       SetAllAdvancedQueries(parsed.aq.split('---'));
     }
     setAllowEffects({ ...allowEffects, allowReduxToUrl: false });
-    // Disable exhaustive-deps rule for the dependency array
+    // Disable eslint rule for exhaustive-deps for the dependency array
     // because many of the suggested dependencies are not required.
     // eslint-disable-next-line
   }, [history.location.search]);
@@ -96,7 +96,7 @@ const HistoryState: React.FC<HistoryStateProps> = ({
       setUri(fullURI);
       setAllowEffects({ ...allowEffects, allowUrlToRedux: false });
     }
-    // Disable exhaustive-deps rule for the dependency array
+    // Disable eslint rule for exhaustive-deps for the dependency array
     // because many of the suggested dependencies are not required.
     // eslint-disable-next-line
   }, [first, results, q, aq]);

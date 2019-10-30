@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Loading.tsx Renders the app and matches snapshot 1`] = `"<div class=\\"loading-spinner \\"><img src=\\"tail-spin.svg\\" alt=\\"Loading...\\"/></div>"`;

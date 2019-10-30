@@ -6,9 +6,9 @@ import {
 } from '../../../../Store/AdvancedQuery/actions';
 import { updateFirstResult } from '../../../../Store/Pagination/actions';
 import { GroupByResultValue } from '../../../../Models/query.type';
+import { getAdvancedQueryStatus } from '../../../../Helpers/query-string.helper';
 
 import './index.css';
-import { getAdvancedQueryStatus } from '../../../../Helpers/query-string.helper';
 
 interface FilterGroupProps {
   title: string;
@@ -19,7 +19,7 @@ interface FilterGroupProps {
   updateFirstResult: typeof updateFirstResult;
 }
 
-const FilterGroup: React.FC<FilterGroupProps> = ({
+export const FilterGroup: React.FC<FilterGroupProps> = ({
   title,
   field,
   options,

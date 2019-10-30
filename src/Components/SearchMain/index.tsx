@@ -55,7 +55,6 @@ const SearchMain: React.FC<SearchMainProps> = ({
         }
       );
 
-      console.log(result);
       setLoading(false);
       setData(result);
     };

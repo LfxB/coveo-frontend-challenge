@@ -26,7 +26,7 @@ const Filterbar: React.FC<FilterbarProps> = ({
           if (res.field !== 'tpprixnum') {
             return (
               <FilterGroup
-                key={key}
+                key={`${key}__${res.field}`}
                 title={getGroupPrettyTitle(res.field)}
                 field={res.field}
                 options={res.values}

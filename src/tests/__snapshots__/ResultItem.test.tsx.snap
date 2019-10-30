@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ResultItem.tsx Renders the app and matches snapshot 1`] = `"<div class=\\"results-item\\"><a href=\\"www.google.com\\" target=\\"_blank\\" rel=\\"noopener noreferrer\\" class=\\"results-img-container\\"><img src=\\"thumbworld.com\\" alt=\\"Image of test\\"/></a><a href=\\"www.google.com\\" target=\\"_blank\\" rel=\\"noopener noreferrer\\" class=\\"results-title\\">test</a><div class=\\"results-pays-prix\\">Canada $123.00</div><div class=\\"results-categorie\\">category</div></div>"`;
